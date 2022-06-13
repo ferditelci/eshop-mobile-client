@@ -1,1 +1,2 @@
-bu bir denemedir.
+Bu bir denemedir.
+Bu bir deneme deðildir.
