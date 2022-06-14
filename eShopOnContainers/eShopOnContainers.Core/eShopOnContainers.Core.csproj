@@ -43,5 +43,16 @@
     <Compile Update="Views\AnaSayfaView.xaml.cs">
       <DependentUpon>AnaSayfaView.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\UrunlerView.xaml.cs">
+      <DependentUpon>UrunlerView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Views\UrunlerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AraView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
