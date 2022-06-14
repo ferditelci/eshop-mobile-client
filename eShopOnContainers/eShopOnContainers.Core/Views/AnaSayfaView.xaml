@@ -10,7 +10,7 @@
     xmlns:viewmodels="clr-namespace:eShopOnContainers.Core.ViewModels"
     xmlns:views="clr-namespace:eShopOnContainers.Core.Views;assembly=eShopOnContainers.Core"
     xmlns:xtc="http://xamarin.com/schemas/2020/toolkit"
-    Title="Ana Sayfa"
+    Title="                            Çilek Butik"
     viewModelBase:ViewModelLocator.AutoWireViewModel="true"
     x:DataType="viewmodels:AnaSayfaViewModel">
     <ContentPage.Resources>
@@ -22,40 +22,27 @@
                 <Setter Property="Margin" Value="0" />
             </Style>
 
-            <Style x:Key="FilterLabelStyle" TargetType="{x:Type Label}">
-                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Center" />
-            </Style>
-
-            <animations:StoryBoard x:Key="ProductsAnimation" Target="{x:Reference Products}">
-                <animations:FadeInAnimation
-                    Delay="250"
-                    Direction="Up"
-                    Duration="1500" />
-            </animations:StoryBoard>
-
         </ResourceDictionary>
     </ContentPage.Resources>
-    <ContentPage.Triggers>
-        <EventTrigger Event="Appearing">
-            <triggers:BeginAnimation Animation="{StaticResource ProductsAnimation}" />
-        </EventTrigger>
-    </ContentPage.Triggers>
-    <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="{DynamicResource FilterIconForTitleImageSource}" Clicked="OnFilterChanged" />
-    </ContentPage.ToolbarItems>
-    <Grid ColumnSpacing="0" RowSpacing="0">
+    
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         <!--  CATALOG  -->
-        
-        <Button Text="HelloWorld" BackgroundColor="#e32c"></Button>
-        
-        <Label
+        <StackLayout Orientation="Vertical" Padding="0,0,0,0" Spacing="10" BackgroundColor="#f4f4f4">
+            <Image Source="https://www.cilekbutik.net/cdn/1/1190/450/images/manset/uygulama-22.png"/>
+
+            <Label Text=" Günün Fırsatları" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+        </StackLayout>
+        <!--<Label
             HorizontalOptions="Center"
             IsVisible="{Binding Products, Converter={StaticResource ListIsNullOrEmptyConverter}}"
             Text="NO PRODUCTS FOUND"
-            VerticalOptions="Center" />
-        <ListView
+            VerticalOptions="Center" />-->
+        <!--<ListView
             x:Name="Products"
             CachingStrategy="RecycleElement"
             SelectedItem="{Binding SelectedProduct, Mode=TwoWay}"
@@ -77,7 +64,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <!--  INDICATOR  -->
+        --><!--  INDICATOR  --><!--
         <ActivityIndicator
             HorizontalOptions="Center"
             IsRunning="{Binding IsBusy}"
@@ -90,28 +77,7 @@
                     <On Platform="UWP, WinRT, WinPhone" Value="400" />
                 </OnPlatform>
             </ActivityIndicator.WidthRequest>
-        </ActivityIndicator>
-
-        <xtc:BadgeView
-            x:Name="ShoppingCart"
-            BackgroundColor="{AppThemeBinding Light={StaticResource DarkBackgroundColor}, Dark={StaticResource LightBackgroundColor}}"
-            TextColor="{AppThemeBinding Light={StaticResource DarkForegroundColor}, Dark={StaticResource LightForegroundColor}}"
-            BadgePosition="TopRight"
-            AutoHide="True"
-            FontSize="Micro"
-            Text="{Binding BadgeCount, Mode=OneWay}"
-            Padding="16,0"
-            Margin="0,0,16,16"
-            HorizontalOptions="End"
-            VerticalOptions="End">
-            <ImageButton
-                Source="{DynamicResource BasketIconForTitleImageSource}"
-                Command="{Binding ViewBasketCommand}"
-                BackgroundColor="{StaticResource LightGreenColor}"
-                Padding="16"
-                CornerRadius="8"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"/>
-        </xtc:BadgeView>
+        </ActivityIndicator>-->
+        
     </Grid>
 </views:ContentPageBase>
