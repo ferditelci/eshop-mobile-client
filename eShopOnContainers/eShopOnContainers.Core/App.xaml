@@ -69,10 +69,10 @@
             </OnPlatform>
 
             <!--  Theme Colors  -->
-            <Color x:Key="LightBackgroundColor">#FFFFFF</Color>
-            <Color x:Key="DarkBackgroundColor">#222222</Color>
-            <Color x:Key="LightForegroundColor">#222222</Color>
-            <Color x:Key="DarkForegroundColor">#FFFFFF</Color>
+            <Color x:Key="LightBackgroundColor">White</Color>
+            <Color x:Key="DarkBackgroundColor">White</Color>
+            <Color x:Key="LightForegroundColor">#ed2b3a</Color>
+            <Color x:Key="DarkForegroundColor">#ed2b3a</Color>
             <Color x:Key="LightFontColor">#222222</Color>
             <Color x:Key="DarkFontColor">#E7E7E7</Color>
             <Color x:Key="LightSeparatorColor">#222222</Color>
@@ -102,6 +102,7 @@
                 <On Platform="UWP" Value="Assets/Fonts/Font_Awesome_5_Free-Solid-900.otf#Font Awesome 5 Free" />
             </OnPlatform>
 
+            <x:String x:Key="AnaSayfaIcon">&#xf015;</x:String>
             <x:String x:Key="SettingsIcon">&#xf013;</x:String>
             <x:String x:Key="CatalogIcon">&#xf03a;</x:String>
             <x:String x:Key="ProfileIcon">&#xf2bd;</x:String>
@@ -122,7 +123,12 @@
                 FontFamily="{StaticResource FontAwesomeSolid}"
                 Glyph="{StaticResource SettingsIcon}"
                 Color="{StaticResource WhiteColor}" />
-
+            
+            <FontImageSource
+                x:Key="AnaSayfaIconImageSource"
+                FontFamily="{StaticResource FontAwesomeSolid}"
+                Glyph="{StaticResource AnaSayfaIcon}"/>
+            
             <FontImageSource
                 x:Key="CatalogIconImageSource"
                 FontFamily="{StaticResource FontAwesomeSolid}"
