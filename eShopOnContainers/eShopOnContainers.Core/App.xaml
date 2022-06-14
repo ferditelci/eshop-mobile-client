@@ -103,6 +103,21 @@
             </OnPlatform>
 
             <x:String x:Key="AnaSayfaIcon">&#xf015;</x:String>
+            <x:String x:Key="AraIcon">&#xf002;</x:String>
+            <x:String x:Key="UrunlerIcon">&#xf0c9;</x:String>
+            <x:String x:Key="SepetimIcon">&#xf07a;</x:String>
+            <x:String x:Key="HesabimIcon">&#xf2c0;</x:String>
+            <x:String x:Key="HesabimDoluIcon">&#xf007;</x:String>
+            <x:String x:Key="HesabimArtiIcon">&#xf234;;</x:String>
+            <x:String x:Key="AnahtarIcon">&#xf084;</x:String>
+            <x:String x:Key="TLIcon">&#xf195;</x:String>
+            <x:String x:Key="SagOkIcon">&#xf054;</x:String>
+            <x:String x:Key="SolOkIcon">&#xf053;</x:String>
+            <x:String x:Key="GeriDonIcon">&#xf060;</x:String>
+            <x:String x:Key="FiltreleIcon">&#xf0b0;</x:String>
+            <x:String x:Key="AsteriksIcon">&#xf069;</x:String>
+            <x:String x:Key="YildizIcon">&#xf005;</x:String>
+            
             <x:String x:Key="SettingsIcon">&#xf013;</x:String>
             <x:String x:Key="CatalogIcon">&#xf03a;</x:String>
             <x:String x:Key="ProfileIcon">&#xf2bd;</x:String>
@@ -128,6 +143,62 @@
                 x:Key="AnaSayfaIconImageSource"
                 FontFamily="{StaticResource FontAwesomeSolid}"
                 Glyph="{StaticResource AnaSayfaIcon}"/>
+            <FontImageSource
+                x:Key="AraIconImageSource"
+                FontFamily="{StaticResource FontAwesomeSolid}"
+                Glyph="{StaticResource AraIcon}"/>
+            <FontImageSource
+                x:Key="UrunlerIconImageSource"
+                FontFamily="{StaticResource FontAwesomeSolid}"
+                Glyph="{StaticResource UrunlerIcon}"/>
+            <FontImageSource
+                x:Key="SepetimIconImageSource"
+                FontFamily="{StaticResource FontAwesomeSolid}"
+                Glyph="{StaticResource SepetimIcon}"/>
+            <FontImageSource
+                x:Key="HesabimIconImageSource"
+                FontFamily="{StaticResource FontAwesomeSolid}"
+                Glyph="{StaticResource HesabimIcon}"/>
+            <FontImageSource
+                x:Key="HesabimDoluIconImageSource"
+                FontFamily="{StaticResource FontAwesomeSolid}"
+                Glyph="{StaticResource HesabimDoluIcon}"/>
+            <FontImageSource
+                x:Key="HesabimArtiIconImageSource"
+                FontFamily="{StaticResource FontAwesomeSolid}"
+                Glyph="{StaticResource HesabimArtiIcon}"/>
+            <FontImageSource
+                x:Key="AnahtarIconImageSource"
+                FontFamily="{StaticResource FontAwesomeSolid}"
+                Glyph="{StaticResource AnahtarIcon}"/>
+            <FontImageSource
+                x:Key="TLIconImageSource"
+                FontFamily="{StaticResource FontAwesomeSolid}"
+                Glyph="{StaticResource TLIcon}"/>
+            <FontImageSource
+                x:Key="SagOkIconImageSource"
+                FontFamily="{StaticResource FontAwesomeSolid}"
+                Glyph="{StaticResource SagOkIcon}"/>
+            <FontImageSource
+                x:Key="SolOkIconImageSource"
+                FontFamily="{StaticResource FontAwesomeSolid}"
+                Glyph="{StaticResource SolOkIcon}"/>
+            <FontImageSource
+                x:Key="GeriDonIconImageSource"
+                FontFamily="{StaticResource FontAwesomeSolid}"
+                Glyph="{StaticResource GeriDonIcon}"/>
+            <FontImageSource
+                x:Key="FiltreleIconImageSource"
+                FontFamily="{StaticResource FontAwesomeSolid}"
+                Glyph="{StaticResource FiltreleIcon}"/>
+            <FontImageSource
+                x:Key="AsteriksIconImageSource"
+                FontFamily="{StaticResource FontAwesomeSolid}"
+                Glyph="{StaticResource AsteriksIcon}"/>
+            <FontImageSource
+                x:Key="YildizIconImageSource"
+                FontFamily="{StaticResource FontAwesomeSolid}"
+                Glyph="{StaticResource YildizIcon}"/>
             
             <FontImageSource
                 x:Key="CatalogIconImageSource"
