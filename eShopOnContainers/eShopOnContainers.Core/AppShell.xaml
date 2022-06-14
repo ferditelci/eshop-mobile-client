@@ -34,8 +34,8 @@
         <ShellContent Title="Ana Sayfa" Route="AnaSayfa" Icon="{StaticResource AnaSayfaIconImageSource}" ContentTemplate="{DataTemplate views:AnaSayfaView}" />
         <ShellContent Title="Ara" Route="Ara" Icon="{StaticResource AraIconImageSource}" ContentTemplate="{DataTemplate views:AraView}" />
         <ShellContent Title="Ürünler" Route="Urunler" Icon="{StaticResource UrunlerIconImageSource}" ContentTemplate="{DataTemplate views:UrunlerView}" />
-        <!--<ShellContent Title="Sepetim" Route="Sepetim" Icon="{StaticResource SepetimIconImageSource}" ContentTemplate="{DataTemplate views:SepetimView}" />
-        <ShellContent Title="Hesabım" Route="Hesabim" Icon="{StaticResource HesabimIconImageSource}" ContentTemplate="{DataTemplate views:HesabimView}" />-->
+        <ShellContent Title="Sepetim" Route="Sepetim" Icon="{StaticResource SepetimIconImageSource}" ContentTemplate="{DataTemplate views:SepetimView}" />
+        <ShellContent Title="Hesabım" Route="Hesabim" Icon="{StaticResource HesabimIconImageSource}" ContentTemplate="{DataTemplate views:HesabimView}" />
         
         <ShellContent Title="CATALOG" Route="Catalog" Icon="{StaticResource CatalogIconImageSource}" ContentTemplate="{DataTemplate views:CatalogView}" />
         <ShellContent Title="PROFILE" Route="Profile" Icon="{StaticResource ProfileIconImageSource}" ContentTemplate="{DataTemplate views:ProfileView}" />

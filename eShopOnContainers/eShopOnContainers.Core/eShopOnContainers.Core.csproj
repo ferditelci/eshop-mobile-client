@@ -43,11 +43,23 @@
     <Compile Update="Views\AnaSayfaView.xaml.cs">
       <DependentUpon>AnaSayfaView.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\HesabimView.xaml.cs">
+      <DependentUpon>HesabimView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SepetimView.xaml.cs">
+      <DependentUpon>SepetimView.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\UrunlerView.xaml.cs">
       <DependentUpon>UrunlerView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="Views\HesabimView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SepetimView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\UrunlerView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

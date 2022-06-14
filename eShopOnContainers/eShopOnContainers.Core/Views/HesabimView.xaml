@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage    xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="eShopOnContainers.Core.Views.HesabimView"
+                xmlns:viewModelBase="clr-namespace:eShopOnContainers.Core.ViewModels.Base;assembly=eShopOnContainers.Core"
+                xmlns:animations="clr-namespace:eShopOnContainers.Core.Animations;assembly=eShopOnContainers.Core"
+                xmlns:converters="clr-namespace:eShopOnContainers.Core.Converters;assembly=eShopOnContainers.Core"
+                xmlns:triggers="clr-namespace:eShopOnContainers.Core.Triggers;assembly=eShopOnContainers.Core"
+                xmlns:behaviors="clr-namespace:eShopOnContainers.Core.Behaviors;assembly=eShopOnContainers.Core"
+                xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                xmlns:viewmodels="clr-namespace:eShopOnContainers.Core.ViewModels"
+                Title="                            Hesabım"
+                viewModelBase:ViewModelLocator.AutoWireViewModel="true"
+                x:DataType="viewmodels:HesabimViewModel">
+
+
+
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <StackLayout Padding="0,10,0,10" BackgroundColor="#f4f4f4">
+                    <Label Text="   HESABIM" FontSize="Medium"  TextColor="Gray" />
+                    <StackLayout Orientation="Horizontal" Spacing="15" HorizontalOptions="Center">
+                        <Button WidthRequest="190" BackgroundColor="White" BorderColor="Black" BorderWidth="2" HeightRequest="50" Text="Giriş Yap" TextColor="Black" TextTransform="None" FontSize="Medium">
+                        </Button>
+                        <Button WidthRequest="190" BackgroundColor="White" BorderColor="Red" BorderWidth="2" HeightRequest="50" Text="Kayıt Ol" TextColor="Red" TextTransform="None" FontSize="Medium">
+                        </Button>
+
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <BoxView HeightRequest="1" Color="LightGray" Margin ="0, -9, 0, 0"/>
+            <StackLayout>
+                <Button BackgroundColor="White" Text="Şifremi Unuttum                                                                              " TextColor="Black" TextTransform="None" HorizontalOptions="Start" FontSize="16" HeightRequest="40"></Button>
+            </StackLayout>
+            <BoxView HeightRequest="1" Color="LightGray" Margin ="0, 0, 0, -6"/>
+            <StackLayout Padding="0,10,0,10" BackgroundColor="#f4f4f4">
+                <Label Text="   POPÜLER SAYFALAR" FontSize="Medium"  TextColor="Gray" />
+            </StackLayout>
+            <BoxView HeightRequest="1" Color="LightGray" Margin ="0, -9, 0, 0"/>
+            <StackLayout>
+                <Button BackgroundColor="White" Text="Sipariş Takip                                                                              " TextColor="Black" TextTransform="None" HorizontalOptions="Start" FontSize="16" HeightRequest="40"></Button>
+                <BoxView HeightRequest="1" Color="LightGray" Margin ="0, 0, 0, -6"/>
+                <Button BackgroundColor="White" Text="Havale Bildirimi                                                                              " TextColor="Black" TextTransform="None" HorizontalOptions="Start" FontSize="16" HeightRequest="40"></Button>
+            </StackLayout>
+            <BoxView HeightRequest="1" Color="LightGray" Margin ="0, 0, 0, -6"/>
+            <StackLayout Padding="0,10,0,10" BackgroundColor="#f4f4f4">
+                <Label Text="   DİĞER" FontSize="Medium"  TextColor="Gray" />
+            </StackLayout>
+            <BoxView HeightRequest="1" Color="LightGray" Margin ="0, -9, 0, 0"/>
+            <StackLayout>
+                <Button BackgroundColor="White" Text="Hakkımızda                                                                              " TextColor="Black" TextTransform="None" HorizontalOptions="Start" FontSize="16" HeightRequest="40"></Button>
+                <BoxView HeightRequest="1" Color="LightGray" Margin ="0, 0, 0, -6"/>
+                <Button BackgroundColor="White" Text="İletişim                                                                                        " TextColor="Black" TextTransform="None" HorizontalOptions="Start" FontSize="16" HeightRequest="40"></Button>
+                <BoxView HeightRequest="1" Color="LightGray" Margin ="0, 0, 0, -6"/>
+                <Button BackgroundColor="White" Text="Mobil Uygulamamız                                                                              " TextColor="Black" TextTransform="None" HorizontalOptions="Start" FontSize="16" HeightRequest="40"></Button>
+            </StackLayout>
+            <BoxView HeightRequest="1" Color="LightGray" Margin ="0, 0, 0, -6"/>
+            <Image Source="gelistirici_logo.png"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
