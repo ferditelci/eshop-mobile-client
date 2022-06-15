@@ -22,9 +22,9 @@
                 <StackLayout Padding="0,10,0,10" BackgroundColor="#f4f4f4">
                     <Label Text="   HESABIM" FontSize="Medium"  TextColor="Gray" />
                     <StackLayout Orientation="Horizontal" Spacing="15" HorizontalOptions="Center">
-                        <Button WidthRequest="190" BackgroundColor="White" BorderColor="Black" BorderWidth="2" HeightRequest="50" Text="Giriş Yap" TextColor="Black" TextTransform="None" FontSize="Medium">
+                        <Button x:Name="GirisYap" Clicked="GirisYap_Clicked" WidthRequest="190" BackgroundColor="White" BorderColor="Black" BorderWidth="2" HeightRequest="50" Text="Giriş Yap" TextColor="Black" TextTransform="None" FontSize="Medium">
                         </Button>
-                        <Button WidthRequest="190" BackgroundColor="White" BorderColor="Red" BorderWidth="2" HeightRequest="50" Text="Kayıt Ol" TextColor="Red" TextTransform="None" FontSize="Medium">
+                        <Button  x:Name="KayitOl" Clicked="KayitOl_Clicked" WidthRequest="190" BackgroundColor="White" BorderColor="Red" BorderWidth="2" HeightRequest="50" Text="Kayıt Ol" TextColor="Red" TextTransform="None" FontSize="Medium">
                         </Button>
 
                     </StackLayout>

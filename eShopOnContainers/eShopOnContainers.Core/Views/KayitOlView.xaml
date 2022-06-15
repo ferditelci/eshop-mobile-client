@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage    xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="eShopOnContainers.Core.Views.KayitOlView"
+                xmlns:viewModelBase="clr-namespace:eShopOnContainers.Core.ViewModels.Base;assembly=eShopOnContainers.Core"
+                xmlns:animations="clr-namespace:eShopOnContainers.Core.Animations;assembly=eShopOnContainers.Core"
+                xmlns:converters="clr-namespace:eShopOnContainers.Core.Converters;assembly=eShopOnContainers.Core"
+                xmlns:triggers="clr-namespace:eShopOnContainers.Core.Triggers;assembly=eShopOnContainers.Core"
+                xmlns:behaviors="clr-namespace:eShopOnContainers.Core.Behaviors;assembly=eShopOnContainers.Core"
+                xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                xmlns:viewmodels="clr-namespace:eShopOnContainers.Core.ViewModels"
+                Title="                  Üyelik Formu"
+                viewModelBase:ViewModelLocator.AutoWireViewModel="true"
+                x:DataType="viewmodels:KayitOlViewModel">
+                
+
+    <Grid>
+        <StackLayout>
+            <Entry Placeholder="E-Posta Adresi" HorizontalOptions="FillAndExpand" Margin="10,30,10,0" TextColor="gray"></Entry>
+            <Entry Placeholder="İsim" HorizontalOptions="FillAndExpand" Margin="10,25,10,0" TextColor="Gray"></Entry>
+            <Entry Placeholder="Soyisim" HorizontalOptions="FillAndExpand" Margin="10,25,10,0" TextColor="gray"></Entry>
+            <Entry Placeholder="Şifre" HorizontalOptions="FillAndExpand" Margin="10,25,10,0" TextColor="Gray"></Entry>
+            <Entry Placeholder="Şifre (Tekrar)" HorizontalOptions="FillAndExpand" Margin="10,25,10,0" TextColor="gray"></Entry>
+            <StackLayout Orientation="Horizontal">
+                <CheckBox IsChecked="True"></CheckBox>
+                <Label Text="Kullanici Sözleşmesini okudum ve kabul ediyorum."></Label>
+            </StackLayout>
+            <Button Text="Kayıt Ol" TextColor="White" BackgroundColor="#49B016" HorizontalOptions="FillAndExpand" Margin="5,0,5,0" HeightRequest="50"></Button>
+        </StackLayout>
+    </Grid>
+</ContentPage>

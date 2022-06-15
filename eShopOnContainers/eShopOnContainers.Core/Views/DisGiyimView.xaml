@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage    xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="eShopOnContainers.Core.Views.DisGiyimView"
+                xmlns:viewModelBase="clr-namespace:eShopOnContainers.Core.ViewModels.Base;assembly=eShopOnContainers.Core"
+                xmlns:animations="clr-namespace:eShopOnContainers.Core.Animations;assembly=eShopOnContainers.Core"
+                xmlns:converters="clr-namespace:eShopOnContainers.Core.Converters;assembly=eShopOnContainers.Core"
+                xmlns:triggers="clr-namespace:eShopOnContainers.Core.Triggers;assembly=eShopOnContainers.Core"
+                xmlns:behaviors="clr-namespace:eShopOnContainers.Core.Behaviors;assembly=eShopOnContainers.Core"
+                xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                xmlns:viewmodels="clr-namespace:eShopOnContainers.Core.ViewModels"
+                Title="                          Ürünler"
+                viewModelBase:ViewModelLocator.AutoWireViewModel="true"
+                x:DataType="viewmodels:DisGiyimViewModel">
+
+
+    <ContentPage.Content>
+        <StackLayout Spacing="-1">
+            <Button BackgroundColor="White" Text="  &lt;  Geri                                                                                         " TextColor="red" TextTransform="None" HorizontalOptions="Start" FontSize="16" FontAttributes="Bold" HeightRequest="45"></Button>
+            <Button BackgroundColor="White" Text="Tüm Dış Giyim Ürünleri                                                          " TextColor="Black" TextTransform="None" HorizontalOptions="Start" FontSize="16" FontAttributes="Bold" HeightRequest="45" ></Button>
+            <Button BackgroundColor="White" Text="Ceket                                                                                           " TextColor="Black" TextTransform="None" HorizontalOptions="Start" FontSize="16" FontAttributes="Bold" HeightRequest="45" BorderColor="#d9d9d9" BorderWidth="1"></Button>
+            <Button BackgroundColor="White" Text="Mont                                                                                            " TextColor="Black" TextTransform="None" HorizontalOptions="Start" FontSize="16" FontAttributes="Bold" HeightRequest="45" BorderColor="#d9d9d9" BorderWidth="1"></Button>
+            <Button BackgroundColor="White" Text="Trençkot                                                                                     " TextColor="Black" TextTransform="None" HorizontalOptions="Start" FontSize="16" FontAttributes="Bold" HeightRequest="45" BorderColor="#d9d9d9" BorderWidth="1"></Button>
+            <Button BackgroundColor="White" Text="Yağmurluk                                                                                  " TextColor="Black" TextTransform="None" HorizontalOptions="Start" FontSize="16" FontAttributes="Bold" HeightRequest="45" BorderColor="#d9d9d9" BorderWidth="1"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

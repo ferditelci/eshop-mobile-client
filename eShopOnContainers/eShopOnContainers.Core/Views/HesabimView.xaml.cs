@@ -43,5 +43,15 @@ namespace eShopOnContainers.Core.Views
                 Debug.WriteLine(ex.Message);
             }
         }
+
+        private void GirisYap_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new UyeGirisiView());
+        }
+
+        private void KayitOl_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new KayitOlView());
+        }
     }
 }
