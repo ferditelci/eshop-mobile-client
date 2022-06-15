@@ -9,19 +9,17 @@
     xmlns:viewModelBase="clr-namespace:eShopOnContainers.Core.ViewModels.Base;assembly=eShopOnContainers.Core"
     xmlns:viewmodels="clr-namespace:eShopOnContainers.Core.ViewModels"
     xmlns:views="clr-namespace:eShopOnContainers.Core.Views;assembly=eShopOnContainers.Core"
-    xmlns:xtc="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:xtc="http://xamarin.com/schemas/2020/toolkit" xmlns:m="clr-namespace:eShopOnContainers.Core.Models.AnaSayfa" <!--xmc sonrası ektir-->
     Title="                            Çilek Butik"
     viewModelBase:ViewModelLocator.AutoWireViewModel="true"
     x:DataType="viewmodels:AnaSayfaViewModel">
     <ContentPage.Resources>
         <ResourceDictionary>
-
             <Style x:Key="ProductsListStyle" TargetType="{x:Type ListView}">
                 <Setter Property="RowHeight" Value="400" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="Margin" Value="0" />
             </Style>
-
         </ResourceDictionary>
     </ContentPage.Resources>
     
@@ -36,48 +34,43 @@
             <Image Source="https://www.cilekbutik.net/cdn/1/1190/450/images/manset/uygulama-22.png"/>
 
             <Label Text=" Günün Fırsatları" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+            
+            <Entry Text="{Binding InputDescription}"  Placeholder="Enter Description" MaxLength="15" Grid.Row="0"/>
+            <Button Text="Post" Command="{Binding PostCommand}"  Grid.Row="1" />
+            <Button Text="DenemeButton" ></Button>
+            <Entry Text="DenemeEntry"></Entry>
         </StackLayout>
-        <!--<Label
-            HorizontalOptions="Center"
-            IsVisible="{Binding Products, Converter={StaticResource ListIsNullOrEmptyConverter}}"
-            Text="NO PRODUCTS FOUND"
-            VerticalOptions="Center" />-->
-        <!--<ListView
-            x:Name="Products"
-            CachingStrategy="RecycleElement"
-            SelectedItem="{Binding SelectedProduct, Mode=TwoWay}"
-            IsVisible="{Binding Products, Converter={StaticResource ListIsNotNullOrEmptyConverter}}"
-            ItemsSource="{Binding Products}"
-            SeparatorVisibility="None"
-            Style="{StaticResource ProductsListStyle}">
-            <ListView.Behaviors>
-                <xtc:EventToCommandBehavior
-                    Command="{Binding AddCatalogItemCommand}"
-                    EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}"
-                    EventName="ItemTapped" />
-            </ListView.Behaviors>
+        
+        <!--ItemsSource="{Binding GununFirsatlari}"-->
+        <ListView ItemsSource="{Binding Items,Mode=TwoWay}" RowHeight="100" SelectedItem="{Binding SelectedKey,Mode=TwoWay}" IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefreshListCommand}" IsRefreshing="{Binding IsRefreshing}">
             <ListView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="m:AnaSayfaItem">
                     <ViewCell>
-                        <templates:ProductTemplate />
+                        <StackLayout>
+                            <Grid Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Entry Text="{Binding Name}" MaxLength="15" TextColor="Black" FontSize="Medium" Grid.Row="0" Grid.Column="0"/>
+                                <Label Text="{Binding Price}" FontSize="Medium" Grid.Row="0" Grid.Column="1"/>
+                                <!--<Button Text="Delete"
+                                                Command="{Binding DeleteCommand, Mode=TwoWay,Source={RelativeSource AncestorType={x:Type vm:AnaSayfaViewModel}}}"
+                                                Grid.Row="1"
+                                                Grid.Column="0"/>
+                                <Button Text="Update" Command="{Binding UpdateCommand, Mode=TwoWay,Source={RelativeSource AncestorType={x:Type vm:AnaSayfaViewModel}}}"
+                                                Grid.Row="1"
+                                                Grid.Column="1"/>-->
+                            </Grid>
+                        </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        --><!--  INDICATOR  --><!--
-        <ActivityIndicator
-            HorizontalOptions="Center"
-            IsRunning="{Binding IsBusy}"
-            IsVisible="{Binding IsBusy}"
-            VerticalOptions="Center"
-            Color="{StaticResource LightGreenColor}">
-            <ActivityIndicator.WidthRequest>
-                <OnPlatform x:TypeArguments="x:Double">
-                    <On Platform="iOS, Android" Value="100" />
-                    <On Platform="UWP, WinRT, WinPhone" Value="400" />
-                </OnPlatform>
-            </ActivityIndicator.WidthRequest>
-        </ActivityIndicator>-->
         
     </Grid>
 </views:ContentPageBase>

@@ -4,6 +4,7 @@ using System;
 using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
+using Firebase.Database;
 
 namespace eShopOnContainers.Core.Views
 {
@@ -11,9 +12,12 @@ namespace eShopOnContainers.Core.Views
     {
         private FiltersView _filterView = new FiltersView();
 
+        //FirebaseClient firebaseClient = new FirebaseClient("");
+
         public AnaSayfaView()
         {
             InitializeComponent();
+            BindingContext = new AnaSayfaViewModel();
         }
 
         protected override void OnBindingContextChanged()
@@ -27,5 +31,15 @@ namespace eShopOnContainers.Core.Views
         {
             Navigation.ShowPopup (_filterView);
         }
+
+        //private void Button_clicked(System.Object sender, System.EventArgs e)
+        //{
+        //    firebaseClient.Child("Records").PostAsync(new MyDatabaseRecord
+        //    {
+        //        MyProperty = recordData.txt
+        //    });
+
+        //    recordData.txt = "";
+        //}
     }
 }

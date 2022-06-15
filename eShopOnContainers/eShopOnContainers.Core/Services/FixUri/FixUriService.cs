@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using eShopOnContainers.Core.Services.Settings;
+using eShopOnContainers.Core.Models.AnaSayfa;
 
 namespace eShopOnContainers.Core.Services.FixUri
 {
@@ -109,6 +110,39 @@ namespace eShopOnContainers.Core.Services.FixUri
                             var localIp = localResult[0].Value;
 
                             campaignItem.PictureUri = campaignItem.PictureUri.Replace(serviceIp, localIp);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+
+        public void FixAnaSayfaItemPictureUri(IEnumerable<AnaSayfaItem> anasayfaItems)
+        {
+            if (anasayfaItems == null)
+            {
+                return;
+            }
+
+            try
+            {
+                if (!ViewModelLocator.UseMockService
+                    && _settingsService.IdentityEndpointBase != GlobalSetting.DefaultEndpoint)
+                {
+                    foreach (var anasayfaItem in anasayfaItems)
+                    {
+                        MatchCollection serverResult = IpRegex.Matches(anasayfaItem.PictureUri);
+                        MatchCollection localResult = IpRegex.Matches(_settingsService.IdentityEndpointBase);
+
+                        if (serverResult.Count != -1 && localResult.Count != -1)
+                        {
+                            var serviceIp = serverResult[0].Value;
+                            var localIp = localResult[0].Value;
+
+                            anasayfaItem.PictureUri = anasayfaItem.PictureUri.Replace(serviceIp, localIp);
                         }
                     }
                 }
