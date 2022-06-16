@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage    xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="eShopOnContainers.Core.Views.TumUrunlerView"
+                xmlns:viewModelBase="clr-namespace:eShopOnContainers.Core.ViewModels.Base;assembly=eShopOnContainers.Core"
+                xmlns:animations="clr-namespace:eShopOnContainers.Core.Animations;assembly=eShopOnContainers.Core"
+                xmlns:converters="clr-namespace:eShopOnContainers.Core.Converters;assembly=eShopOnContainers.Core"
+                xmlns:triggers="clr-namespace:eShopOnContainers.Core.Triggers;assembly=eShopOnContainers.Core"
+                xmlns:behaviors="clr-namespace:eShopOnContainers.Core.Behaviors;assembly=eShopOnContainers.Core"
+                xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                xmlns:viewmodels="clr-namespace:eShopOnContainers.Core.ViewModels"
+                Title="                          Ürün Arama"
+                viewModelBase:ViewModelLocator.AutoWireViewModel="true"
+                x:DataType="viewmodels:TumUrunlerViewModel">
+
+
+    <ContentPage.Content>
+        
+        
+
+    <Grid BackgroundColor="LightGray">
+        <ScrollView Grid.Row="0" BackgroundColor="LightGray">
+            <Grid BackgroundColor="LightGray">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid  Grid.Column="0" BackgroundColor="White" HeightRequest="210">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150"></RowDefinition>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="20"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" HorizontalOptions="Center" Source="https://www.cilekbutik.net/cdn/1/300/500/images/urunler/62a4340446c77-410650.jpeg" Margin="0,10,0,0"/>
+                    <Label Grid.Row="1" HorizontalTextAlignment="Center" Text="Oversize Kalıp Tişört" TextColor="Gray" FontSize="14"  />
+                    <Label Grid.Row="2" HorizontalTextAlignment="Center" TextColor="Gray" Text="★★★★★ (0)" Margin="0,-10,0,0"></Label>
+                    <Label Grid.Row="3" HorizontalTextAlignment="Center" Text="100.00 TL" TextColor="Black" FontSize="Medium" FontAttributes="Bold" Margin="0,-5,0,0"/>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </Grid>
+    </ContentPage.Content>
+    
+</ContentPage>

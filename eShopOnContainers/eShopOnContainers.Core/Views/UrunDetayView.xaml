@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage    xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="eShopOnContainers.Core.Views.UrunDetayView"
+                xmlns:viewModelBase="clr-namespace:eShopOnContainers.Core.ViewModels.Base;assembly=eShopOnContainers.Core"
+                xmlns:animations="clr-namespace:eShopOnContainers.Core.Animations;assembly=eShopOnContainers.Core"
+                xmlns:converters="clr-namespace:eShopOnContainers.Core.Converters;assembly=eShopOnContainers.Core"
+                xmlns:triggers="clr-namespace:eShopOnContainers.Core.Triggers;assembly=eShopOnContainers.Core"
+                xmlns:behaviors="clr-namespace:eShopOnContainers.Core.Behaviors;assembly=eShopOnContainers.Core"
+                xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                xmlns:viewmodels="clr-namespace:eShopOnContainers.Core.ViewModels"
+                Title="                          Ürün Adı"
+                viewModelBase:ViewModelLocator.AutoWireViewModel="true"
+                x:DataType="viewmodels:UrunDetayViewModel">
+    <Grid>
+        <ScrollView Grid.Row="0">
+            <StackLayout>
+                <Image Margin="0,10,0,0" Source="https://www.cilekbutik.net/cdn/2/700/700/images/urunler/62a7a54085177-942700.jpeg"/>
+                <Label Margin="5,20,0,0" FontAttributes="Bold" FontSize="Medium" TextColor="Black" Text="Sırt Detay Crop"></Label>
+                <Label Padding="5,0,0,10" TextColor="Gray" Text="★★★★★ (0 kullanıcı değerlendirmesi)"></Label>
+                <BoxView HeightRequest="1" Color="LightGray" />
+                <StackLayout Padding="5,7,0,7">
+                    <Label Text=" Fiyat:" TextColor="Gray"></Label>
+                    <Label Margin="45, -28 , 0 , 0" FontAttributes="Bold" FontSize="Medium" TextColor="Black" Text="50.00 TL"/>
+                </StackLayout>
+                <BoxView HeightRequest="1" Color="LightGray"/>
+                <StackLayout Padding="5,7,0,0" >
+                    <Label Text=" Kategori:" TextColor="Gray"></Label>
+                    <Label Margin="65, -26 , 0 , 0" FontAttributes="Bold" TextColor="Gray" Text="Crop"/>
+                </StackLayout>
+                <StackLayout Padding="5,0,0,0" >
+                    <Label Text=" Ürün Kodu:" TextColor="Gray"></Label>
+                    <Label Margin="80, -26 , 0 , 0" FontAttributes="Bold" TextColor="Gray" Text="C1056"/>
+                </StackLayout>
+                <StackLayout Padding="5,0,0,5">
+                    <Label Text=" Stok:" TextColor="Gray"></Label>
+                    <Label Margin="40, -26 , 0 , 0" FontAttributes="Bold" TextColor="Green" Text="Stokta Var"/>
+                </StackLayout>
+                <BoxView HeightRequest="1" Color="LightGray" />
+                <Label Margin="10,5,0,0" FontAttributes="Bold" FontSize="Medium" TextColor="Black" Text="Ürün Özellikleri:"></Label>
+                <Button Text="BEDEN:" TextColor="Gray" BorderColor="LightGray" BorderWidth="1" Margin="5,0,5,0" HorizontalOptions="FillAndExpand" HeightRequest="50" BackgroundColor="White" Padding="-275,0,0,0"></Button>
+                <Button Text="RENK:" TextColor="Gray" BorderColor="LightGray" BorderWidth="1" Margin="5,5,5,0" HorizontalOptions="FillAndExpand" HeightRequest="50" BackgroundColor="White" Padding="-280,0,0,0"></Button>
+                <BoxView HeightRequest="1" Color="LightGray" />
+                <Label Padding="5,0,0,0" Text=" Adet:" TextColor="Gray"></Label>
+                <StackLayout Orientation="Horizontal" Padding="5,0,5,0" >
+                    <Button Text="-" TextColor="Black" FontAttributes="Bold" WidthRequest="50" HorizontalOptions="StartAndExpand"></Button>
+                    <Entry  Placeholder="1" FontAttributes="Bold" TextColor="Black" HorizontalOptions="FillAndExpand"  WidthRequest="250" HorizontalTextAlignment="Center"></Entry>
+                    <Button Text="+" TextColor="Black" FontAttributes="Bold"  HorizontalOptions="EndAndExpand" WidthRequest="50"></Button>
+                </StackLayout>
+
+                <Button Text="Yorumlar" TextTransform="Default" TextColor="Gray" FontAttributes="Bold" FontSize="14" Padding="-260,0,0,0" BackgroundColor="White" BorderColor="White" HorizontalOptions="FillAndExpand"></Button>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

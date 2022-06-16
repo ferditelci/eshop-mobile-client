@@ -7,11 +7,11 @@ using Xamarin.Forms;
 
 namespace eShopOnContainers.Core.Views
 {
-    public partial class UrunlerView : ContentPage
+    public partial class UrunDetayView : ContentPage
     {
         private bool _animate;
 
-        public UrunlerView()
+        public UrunDetayView()
         {
             InitializeComponent();
         }
@@ -42,26 +42,6 @@ namespace eShopOnContainers.Core.Views
             {
                 Debug.WriteLine(ex.Message);
             }
-        }
-
-        private void TumUrunler_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new UyeGirisiView());
-        }
-
-        private void UstGiyim_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new UstGiyimView());
-        }
-
-        private void AltGiyim_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new AltGiyimView());
-        }
-
-        private void DisGiyim_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new DisGiyimView());
         }
     }
 }

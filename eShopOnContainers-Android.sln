@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.8
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{932D8224-11F6-4D07-B109-DA28AD288A63}"
 EndProject
@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile Apps", "Mobile Apps"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A857AD10-40FF-4303-BEC2-FF1C58D5735E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopOnContainers.Core", "eShopOnContainers\eShopOnContainers.Core\eShopOnContainers.Core.csproj", "{67F9D3A8-F71E-4428-913F-C37AE82CDB24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eShopOnContainers.Core", "eShopOnContainers\eShopOnContainers.Core\eShopOnContainers.Core.csproj", "{67F9D3A8-F71E-4428-913F-C37AE82CDB24}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopOnContainers.Droid", "eShopOnContainers\eShopOnContainers.Droid\eShopOnContainers.Droid.csproj", "{62DBB163-9CA9-4818-B48B-13233DF37C24}"
 EndProject
@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Targets", "Targets", "{9CC7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile Apps", "Mobile Apps", "{B7B1D395-4E06-4036-BE86-C216756B9367}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopOnContainers.UnitTests", "eShopOnContainers\eShopOnContainers.UnitTests\eShopOnContainers.UnitTests.csproj", "{F7B6A162-BC4D-4924-B16A-713F9B0344E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eShopOnContainers.UnitTests", "eShopOnContainers\eShopOnContainers.UnitTests\eShopOnContainers.UnitTests.csproj", "{F7B6A162-BC4D-4924-B16A-713F9B0344E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopOnContainers.TestRunner.Droid", "eShopOnContainers\eShopOnContainers.TestRunner.Droid\eShopOnContainers.TestRunner.Droid.csproj", "{A289A7F0-ACD8-42AE-87B6-AB1AFD310BF1}"
 EndProject
@@ -310,5 +310,8 @@ Global
 		{B7B1D395-4E06-4036-BE86-C216756B9367} = {A857AD10-40FF-4303-BEC2-FF1C58D5735E}
 		{F7B6A162-BC4D-4924-B16A-713F9B0344E7} = {B7B1D395-4E06-4036-BE86-C216756B9367}
 		{A289A7F0-ACD8-42AE-87B6-AB1AFD310BF1} = {B7B1D395-4E06-4036-BE86-C216756B9367}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0BFAF2AA-8348-4D8E-B132-031B647C21F3}
 	EndGlobalSection
 EndGlobal
