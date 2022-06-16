@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Text.RegularExpressions;
 using eShopOnContainers.Core.Services.Settings;
 using eShopOnContainers.Core.Models.AnaSayfa;
+using eShopOnContainers.Core.Models.Sepetim;
 
 namespace eShopOnContainers.Core.Services.FixUri
 {
@@ -144,6 +145,38 @@ namespace eShopOnContainers.Core.Services.FixUri
 
                         //    anasayfaItem.PictureUri = anasayfaItem.PictureUri.Replace(serviceIp, localIp);
                         //}
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+
+        public void FixSepetimItemPictureUri(IEnumerable<SepetimItem> sepetimItems)
+        {
+            if (sepetimItems == null)
+            {
+                return;
+            }
+
+            try
+            {
+                if (!ViewModelLocator.UseMockService
+                    && _settingsService.IdentityEndpointBase != GlobalSetting.DefaultEndpoint)
+                {
+                    foreach (var sepetimItem in sepetimItems)
+                    {
+                        MatchCollection serverResult = IpRegex.Matches(sepetimItem.PictureUrl);
+                        MatchCollection localResult = IpRegex.Matches(_settingsService.IdentityEndpointBase);
+
+                        if (serverResult.Count != -1 && localResult.Count != -1)
+                        {
+                            var serviceIp = serverResult[0].Value;
+                            var localIp = localResult[0].Value;
+                            sepetimItem.PictureUrl = sepetimItem.PictureUrl.Replace(serviceIp, localIp);
+                        }
                     }
                 }
             }

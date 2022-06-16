@@ -9,7 +9,7 @@
     xmlns:viewModelBase="clr-namespace:eShopOnContainers.Core.ViewModels.Base;assembly=eShopOnContainers.Core"
     xmlns:viewmodels="clr-namespace:eShopOnContainers.Core.ViewModels"
     xmlns:views="clr-namespace:eShopOnContainers.Core.Views;assembly=eShopOnContainers.Core"
-    xmlns:xtc="http://xamarin.com/schemas/2020/toolkit" xmlns:m="clr-namespace:eShopOnContainers.Core.Models.AnaSayfa" 
+    xmlns:xtc="http://xamarin.com/schemas/2020/toolkit" xmlns:m="clr-namespace:eShopOnContainers.Core.Models.AnaSayfa"
     Title="                            Çilek Butik"
     viewModelBase:ViewModelLocator.AutoWireViewModel="true"
     x:DataType="viewmodels:AnaSayfaViewModel">
@@ -23,8 +23,7 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -36,7 +35,7 @@
 
             <Label Text=" Günün Fırsatları" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
             
-            <Entry Text="{Binding InputDescription}"  Placeholder="Enter Description" MaxLength="15" Grid.Row="0"/>
+            <Entry Text="{Binding InputName}"  Placeholder="Enter Description" MaxLength="15" Grid.Row="0"/>
             <Button Text="Post" Command="{Binding PostCommand}"  Grid.Row="1" />
             <Button Text="DenemeButton" ></Button>
             <Entry Text="DenemeEntry"></Entry>
