@@ -134,16 +134,16 @@ namespace eShopOnContainers.Core.Services.FixUri
                 {
                     foreach (var anasayfaItem in anasayfaItems)
                     {
-                        MatchCollection serverResult = IpRegex.Matches(anasayfaItem.PictureUri);
-                        MatchCollection localResult = IpRegex.Matches(_settingsService.IdentityEndpointBase);
+                        //MatchCollection serverResult = IpRegex.Matches(anasayfaItem.PictureUri);
+                        //MatchCollection localResult = IpRegex.Matches(_settingsService.IdentityEndpointBase);
 
-                        if (serverResult.Count != -1 && localResult.Count != -1)
-                        {
-                            var serviceIp = serverResult[0].Value;
-                            var localIp = localResult[0].Value;
+                        //if (serverResult.Count != -1 && localResult.Count != -1)
+                        //{
+                        //    var serviceIp = serverResult[0].Value;
+                        //    var localIp = localResult[0].Value;
 
-                            anasayfaItem.PictureUri = anasayfaItem.PictureUri.Replace(serviceIp, localIp);
-                        }
+                        //    anasayfaItem.PictureUri = anasayfaItem.PictureUri.Replace(serviceIp, localIp);
+                        //}
                     }
                 }
             }

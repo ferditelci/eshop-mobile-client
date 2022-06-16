@@ -15,6 +15,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Newtonsoft.Json.Linq;
 
 namespace eShopOnContainers.Core.ViewModels
 {
@@ -56,10 +57,11 @@ namespace eShopOnContainers.Core.ViewModels
               .Child("ItemTable")
               .OnceAsync<AnaSayfaItem>()).Select(item => new AnaSayfaItem
               {
+                  Id = item.Object.Id,
                   Name = item.Object.Name,
                   Price = item.Object.Price,
                   Key = item.Key
-              });
+              });;
 
             int count = 0;
             foreach (var item in GetItems)
@@ -79,16 +81,16 @@ namespace eShopOnContainers.Core.ViewModels
         private async void Post()
         {
 
-            if (!string.IsNullOrEmpty(InputDescription))
+            if (!string.IsNullOrEmpty(InputName))
             {
 
                 await fc.Child("ItemTable")
-                 .PostAsync(new AnaSayfaItem() { Name = InputDescription, Price = InputPrice });
+                 .PostAsync(new AnaSayfaItem() { Name = InputName, Price = InputPrice });
 
                 GetData();
 
-                InputDescription = null;
-                
+                InputName = null;
+                InputPrice = 0;
 
             }
 
@@ -137,14 +139,14 @@ namespace eShopOnContainers.Core.ViewModels
             }
         }
 
-        private string inputdescription;
+        private string inputname;
         
-        public string InputDescription
+        public string InputName
         {
-            get => inputdescription;
+            get => inputname;
             set
             {
-                inputdescription = value;
+                inputname = value;
                 OnPropertyChanged();
             }
         }
@@ -383,7 +385,7 @@ namespace eShopOnContainers.Core.ViewModels
                     {
                         ProductId = anasayfaItem.Id,
                         ProductName = anasayfaItem.Name,
-                        PictureUrl = anasayfaItem.PictureUri,
+                        //PictureUrl = anasayfaItem.PictureUri,
                         UnitPrice = anasayfaItem.Price,
                         Quantity = 1
                     });
