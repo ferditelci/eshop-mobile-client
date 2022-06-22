@@ -48,32 +48,32 @@ namespace eShopOnContainers.Core.ViewModels
         /// <summary>
         /// Gets a list of ItemsModel
         /// </summary>
-        private async void GetData()
-        {
+        //private async void GetData()
+        //{
 
-            Items = new ObservableCollection<AnaSayfaItem>();
+        //    Items = new ObservableCollection<AnaSayfaItem>();
 
-            var GetItems = (await fc
-              .Child("ItemTable")
-              .OnceAsync<AnaSayfaItem>()).Select(item => new AnaSayfaItem
-              {
-                  Id = item.Object.Id,
-                  Name = item.Object.Name,
-                  Price = item.Object.Price,
-                  Key = item.Key
-              });;
+        //    var GetItems = (await fc
+        //      .Child("ItemTable")
+        //      .OnceAsync<AnaSayfaItem>()).Select(item => new AnaSayfaItem
+        //      {
+        //          Id = item.Object.Id,
+        //          Name = item.Object.Name,
+        //          Price = item.Object.Price,
+        //          Key = item.Key
+        //      });;
 
-            int count = 0;
-            foreach (var item in GetItems)
-            {
+        //    int count = 0;
+        //    foreach (var item in GetItems)
+        //    {
 
-                Items.Add(item);
-                count++;
-                if (count >= listcount)
-                    break;
-            }
+        //        Items.Add(item);
+        //        count++;
+        //        if (count >= listcount)
+        //            break;
+        //    }
 
-        }
+        //}
 
         /// <summary>
         /// Posts a new ItemsModel
@@ -87,7 +87,7 @@ namespace eShopOnContainers.Core.ViewModels
                 await fc.Child("ItemTable")
                  .PostAsync(new AnaSayfaItem() { Name = InputName, Price = InputPrice });
 
-                GetData();
+                //GetData();
 
                 InputName = null;
                 InputPrice = 0;
@@ -123,10 +123,10 @@ namespace eShopOnContainers.Core.ViewModels
         /// <summary>
         /// Refreshes the listview
         /// </summary>
-        private void PerformRefresh()
-        {
-            GetData();
-        }
+        //private void PerformRefresh()
+        //{
+        //    GetData();
+        //}
 
         private ObservableCollection<AnaSayfaItem> items;
         public ObservableCollection<AnaSayfaItem> Items
@@ -215,12 +215,13 @@ namespace eShopOnContainers.Core.ViewModels
 
 
 
-            RefreshListCommand = new Command(PerformRefresh);
+            //RefreshListCommand = new Command(PerformRefresh);
             PostCommand = new Command(Post);
             DeleteCommand = new Command(Delete);
             UpdateCommand = new Command(Update);
 
-            GetData();
+
+            //GetData();
         }
 
         public ObservableCollection<CatalogItem> Products
@@ -329,7 +330,7 @@ namespace eShopOnContainers.Core.ViewModels
 
         public ICommand ViewBasketCommand => new Command (async () => await ViewBasket ());
 
-        public ICommand AddAnaSayfaItemCOmmand => new Command<AnaSayfaItem>(AddAnaSayfaItem);
+        public ICommand AddAnaSayfaItemCommand => new Command<AnaSayfaItem>(AddAnaSayfaItem);
 
         public override async Task InitializeAsync (IDictionary<string, string> query)
         {
@@ -339,7 +340,7 @@ namespace eShopOnContainers.Core.ViewModels
             Products = await _catalogService.GetCatalogAsync ();
             Brands = await _catalogService.GetCatalogBrandAsync ();
             Types = await _catalogService.GetCatalogTypeAsync ();
-            //Urunler = await _anasayfaService.GetAnaSayfaAsync();
+            Urunler = await _anasayfaService.GetAnaSayfaAsync();
 
             var authToken = _settingsService.AuthAccessToken;
             var userInfo = await _userService.GetUserInfoAsync (authToken);
@@ -385,7 +386,7 @@ namespace eShopOnContainers.Core.ViewModels
                     {
                         ProductId = anasayfaItem.Id,
                         ProductName = anasayfaItem.Name,
-                        //PictureUrl = anasayfaItem.PictureUri,
+                        PictureUrl = anasayfaItem.PictureUri,
                         UnitPrice = anasayfaItem.Price,
                         Quantity = 1
                     });

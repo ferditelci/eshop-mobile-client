@@ -63,6 +63,9 @@
     <Compile Update="Views\Templates\KampanyaTemplate.xaml.cs">
       <DependentUpon>KampanyaTemplate.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Templates\AnaSayfaUrunTemplate.xaml.cs">
+      <DependentUpon>AnaSayfaUrunTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Templates\SiparisItemTemplate.xaml.cs">
       <DependentUpon>SiparisItemTemplate.xaml</DependentUpon>
     </Compile>

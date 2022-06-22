@@ -30,19 +30,42 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <!--  CATALOG  -->
-        <StackLayout Orientation="Vertical" Padding="0,0,0,0" Spacing="10" BackgroundColor="#f4f4f4">
-            <Image Source="https://www.cilekbutik.net/cdn/1/1190/450/images/manset/uygulama-22.png"/>
-
-            <Label Text=" Günün Fırsatları" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
-            
-            <Entry Text="{Binding InputName}"  Placeholder="Enter Description" MaxLength="15" Grid.Row="0"/>
-            <Button Text="Post" Command="{Binding PostCommand}"  Grid.Row="1" />
-            <Button Text="DenemeButton" ></Button>
-            <Entry Text="DenemeEntry"></Entry>
-        </StackLayout>
         
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="0,0,0,0" Spacing="10" BackgroundColor="#f4f4f4">
+                <Image Source="https://www.cilekbutik.net/cdn/1/1190/450/images/manset/uygulama-22.png"/>
+
+                <Label Text=" Günün Fırsatları" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+
+                <ListView
+            x:Name="Products"
+            CachingStrategy="RecycleElement"
+            SelectedItem="{Binding SelectedUrun, Mode=TwoWay}"
+            IsVisible="{Binding Urunler, Converter={StaticResource ListIsNotNullOrEmptyConverter}}"
+            ItemsSource="{Binding Urunler}"
+            SeparatorVisibility="None"
+            Style="{StaticResource ProductsListStyle}">
+                    <ListView.Behaviors>
+                        <xtc:EventToCommandBehavior
+                    Command="{Binding AddAnaSayfaItemCommand}"
+                    EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}"
+                    EventName="ItemTapped" />
+                    </ListView.Behaviors>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <templates:AnaSayfaUrunTemplate />
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            
+        </ScrollView>
+        
+
         <!--ItemsSource="{Binding GununFirsatlari}"-->
-        <ListView ItemsSource="{Binding Items,Mode=TwoWay}" RowHeight="100" SelectedItem="{Binding SelectedKey,Mode=TwoWay}" IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefreshListCommand}" IsRefreshing="{Binding IsRefreshing}">
+        <!--<ListView ItemsSource="{Binding Items,Mode=TwoWay}" RowHeight="100" SelectedItem="{Binding SelectedKey,Mode=TwoWay}" IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefreshListCommand}" IsRefreshing="{Binding IsRefreshing}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="m:AnaSayfaItem">
                     <ViewCell>
@@ -58,19 +81,19 @@
                                 </Grid.ColumnDefinitions>
                                 <Entry Text="{Binding Name}" MaxLength="15" TextColor="Black" FontSize="Medium" Grid.Row="0" Grid.Column="0"/>
                                 <Label Text="{Binding Price}" FontSize="Medium" Grid.Row="0" Grid.Column="1"/>
-                                <!--<Button Text="Delete"
+                                --><!--<Button Text="Delete"
                                                 Command="{Binding DeleteCommand, Mode=TwoWay,Source={RelativeSource AncestorType={x:Type vm:AnaSayfaViewModel}}}"
                                                 Grid.Row="1"
                                                 Grid.Column="0"/>
                                 <Button Text="Update" Command="{Binding UpdateCommand, Mode=TwoWay,Source={RelativeSource AncestorType={x:Type vm:AnaSayfaViewModel}}}"
                                                 Grid.Row="1"
-                                                Grid.Column="1"/>-->
+                                                Grid.Column="1"/>--><!--
                             </Grid>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+        </ListView>-->
         
     </Grid>
 </views:ContentPageBase>
