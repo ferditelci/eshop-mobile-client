@@ -1,7 +1,7 @@
 ﻿using eShopOnContainers.Core.Models.Basket;
-using eShopOnContainers.Core.Models.Catalog;
+using eShopOnContainers.Core.Models.UrunDetay;
 using eShopOnContainers.Core.Services.Basket;
-using eShopOnContainers.Core.Services.Catalog;
+using eShopOnContainers.Core.Services.UrunDetay;
 using eShopOnContainers.Core.Services.Settings;
 using eShopOnContainers.Core.Services.User;
 using eShopOnContainers.Core.ViewModels.Base;
@@ -16,14 +16,12 @@ namespace eShopOnContainers.Core.ViewModels
 {
     public class UrunDetayViewModel : ViewModelBase
     {
-        private ObservableCollection<CatalogItem> _products;
-        private CatalogItem _selectedProduct;
-        private ObservableCollection<CatalogBrand> _brands;
-        private CatalogBrand _brand;
-        private ObservableCollection<CatalogType> _types;
-        private CatalogType _type;
+        private ObservableCollection<UrunMarkasi> _markalar;
+        private UrunMarkasi _marka;
+        private ObservableCollection<UrunTuru> _turler;
+        private UrunTuru _tur;
         private int _badgeCount;
-        private ICatalogService _catalogService;
+        private IUrunDetayService _urunDetayService;
         private IBasketService _basketService;
         private ISettingsService _settingsService;
         private IUserService _userService;
@@ -32,168 +30,67 @@ namespace eShopOnContainers.Core.ViewModels
         {
             this.MultipleInitialization = true;
 
-            _catalogService = DependencyService.Get<ICatalogService>();
+            _urunDetayService = DependencyService.Get<IUrunDetayService>();
             _basketService = DependencyService.Get<IBasketService>();
             _settingsService = DependencyService.Get<ISettingsService>();
             _userService = DependencyService.Get<IUserService>();
         }
 
-        public ObservableCollection<CatalogItem> Products
+        public ObservableCollection<UrunMarkasi> Markalar
         {
-            get => _products;
+            get => _markalar;
             set
             {
-                _products = value;
-                RaisePropertyChanged(() => Products);
+                _markalar = value;
+                RaisePropertyChanged(() => Markalar);
             }
         }
 
-        public CatalogItem SelectedProduct
+        public UrunMarkasi Marka
         {
-            get => _selectedProduct;
+            get => _marka;
             set
             {
-                if (value == null)
-                    return;
-                _selectedProduct = null;
-                RaisePropertyChanged(() => SelectedProduct);
-            }
-        }
-
-        public ObservableCollection<CatalogBrand> Brands
-        {
-            get => _brands;
-            set
-            {
-                _brands = value;
-                RaisePropertyChanged(() => Brands);
-            }
-        }
-
-        public CatalogBrand Brand
-        {
-            get => _brand;
-            set
-            {
-                _brand = value;
-                RaisePropertyChanged(() => Brand);
+                _marka = value;
+                RaisePropertyChanged(() => Marka);
                 RaisePropertyChanged(() => IsFilter);
             }
         }
 
-        public ObservableCollection<CatalogType> Types
+        public ObservableCollection<UrunTuru> Turler
         {
-            get => _types;
+            get => _turler;
             set
             {
-                _types = value;
-                RaisePropertyChanged(() => Types);
+                _turler = value;
+                RaisePropertyChanged(() => Turler);
             }
         }
 
-        public CatalogType Type
+        public UrunTuru Tur
         {
-            get => _type;
+            get => _tur;
             set
             {
-                _type = value;
-                RaisePropertyChanged(() => Type);
+                _tur = value;
+                RaisePropertyChanged(() => Tur);
                 RaisePropertyChanged(() => IsFilter);
             }
         }
 
-        public bool IsFilter { get { return Brand != null || Type != null; } }
+        public bool IsFilter { get { return Marka != null || Tur != null; } }
 
-        public int BadgeCount
-        {
-            get => _badgeCount;
-            set
-            {
-                _badgeCount = value;
-                RaisePropertyChanged(() => BadgeCount);
-            }
-        }
-
-        public ICommand AddCatalogItemCommand => new Command<CatalogItem>(AddCatalogItem);
-
-        public ICommand FilterCommand => new Command(async () => await FilterAsync());
-
-        public ICommand ClearFilterCommand => new Command(async () => await ClearFilterAsync());
-
-        public ICommand ViewBasketCommand => new Command(async () => await ViewBasket());
 
         public override async Task InitializeAsync(IDictionary<string, string> query)
         {
             IsBusy = true;
 
             // Get Catalog, Brands and Types
-            Products = await _catalogService.GetCatalogAsync();
-            Brands = await _catalogService.GetCatalogBrandAsync();
-            Types = await _catalogService.GetCatalogTypeAsync();
-
-            var authToken = _settingsService.AuthAccessToken;
-            var userInfo = await _userService.GetUserInfoAsync(authToken);
-
-            var basket = await _basketService.GetBasketAsync(userInfo.UserId, authToken);
-
-            BadgeCount = basket?.Items?.Count() ?? 0;
+            Markalar = await _urunDetayService.GetUrunMarkasiAsync();
+            Turler = await _urunDetayService.GetUrunTuruAsync();
 
             IsBusy = false;
         }
 
-        private async void AddCatalogItem(CatalogItem catalogItem)
-        {
-            var authToken = _settingsService.AuthAccessToken;
-            var userInfo = await _userService.GetUserInfoAsync(authToken);
-            var basket = await _basketService.GetBasketAsync(userInfo.UserId, authToken);
-            if (basket != null)
-            {
-                basket.Items.Add(
-                    new BasketItem
-                    {
-                        ProductId = catalogItem.Id,
-                        ProductName = catalogItem.Name,
-                        PictureUrl = catalogItem.PictureUri,
-                        UnitPrice = catalogItem.Price,
-                        Quantity = 1
-                    });
-
-                await _basketService.UpdateBasketAsync(basket, authToken);
-                BadgeCount = basket.Items.Count();
-            }
-        }
-
-        private async Task FilterAsync()
-        {
-            try
-            {
-                IsBusy = true;
-
-                if (Brand != null && Type != null)
-                {
-                    Products = await _catalogService.FilterAsync(Brand.Id, Type.Id);
-                }
-            }
-            finally
-            {
-                IsBusy = false;
-            }
-        }
-
-        private async Task ClearFilterAsync()
-        {
-            IsBusy = true;
-
-            Brand = null;
-            Type = null;
-            Products = await _catalogService.GetCatalogAsync();
-
-            IsBusy = false;
-        }
-
-        private Task ViewBasket()
-        {
-            return NavigationService.NavigateToAsync("Basket");
-        }
     }
 }
