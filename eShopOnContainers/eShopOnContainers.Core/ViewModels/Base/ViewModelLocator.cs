@@ -4,13 +4,18 @@ using eShopOnContainers.Core.Services.Catalog;
 using eShopOnContainers.Core.Services.Dependency;
 using eShopOnContainers.Core.Services.FixUri;
 using eShopOnContainers.Core.Services.Identity;
+using eShopOnContainers.Core.Services.Kullanici;
 using eShopOnContainers.Core.Services.Location;
 using eShopOnContainers.Core.Services.Marketing;
 using eShopOnContainers.Core.Services.OpenUrl;
 using eShopOnContainers.Core.Services.Order;
+using eShopOnContainers.Core.Services.Pazarlama;
 using eShopOnContainers.Core.Services.RequestProvider;
+using eShopOnContainers.Core.Services.Sepetim;
 using eShopOnContainers.Core.Services.Settings;
+using eShopOnContainers.Core.Services.Siparis;
 using eShopOnContainers.Core.Services.User;
+using eShopOnContainers.Core.Services.UyeGirisi;
 using eShopOnContainers.Services;
 using System;
 using System.Globalization;
@@ -57,6 +62,11 @@ namespace eShopOnContainers.Core.ViewModels.Base
             Xamarin.Forms.DependencyService.RegisterSingleton<ICampaignService>(new CampaignMockService());
 
             Xamarin.Forms.DependencyService.RegisterSingleton<IAnaSayfaService>(new AnaSayfaMockService());
+            Xamarin.Forms.DependencyService.RegisterSingleton<IHesapService>(new HesapService(requestProvider));
+            Xamarin.Forms.DependencyService.RegisterSingleton<ISepetimService>(new SepetimMockService());
+            Xamarin.Forms.DependencyService.RegisterSingleton<ISiparisService>(new SiparisMockService());
+            Xamarin.Forms.DependencyService.RegisterSingleton<IKullaniciService>(new KullaniciMockService());
+            Xamarin.Forms.DependencyService.RegisterSingleton<IKampanyaService>(new KampanyaMockService());
 
             // View models - by default, TinyIoC will register concrete classes as multi-instance.
             Xamarin.Forms.DependencyService.Register<BasketViewModel> ();
@@ -70,7 +80,22 @@ namespace eShopOnContainers.Core.ViewModels.Base
             Xamarin.Forms.DependencyService.Register<CampaignViewModel> ();
             Xamarin.Forms.DependencyService.Register<CampaignDetailsViewModel> ();
 
-            Xamarin.Forms.DependencyService.Register<AnaSayfaViewModel>(); 
+            Xamarin.Forms.DependencyService.Register<AnaSayfaViewModel>();
+            Xamarin.Forms.DependencyService.Register<AltGiyimViewModel>();
+            Xamarin.Forms.DependencyService.Register<AraViewModel>();
+            Xamarin.Forms.DependencyService.Register<AnaSayfaViewModel>();
+            Xamarin.Forms.DependencyService.Register<DisGiyimViewModel>();
+            Xamarin.Forms.DependencyService.Register<HesabimViewModel>();
+            Xamarin.Forms.DependencyService.Register<KampanyaDetaylarViewModel>();
+            Xamarin.Forms.DependencyService.Register<KampanyaViewModel>();
+            Xamarin.Forms.DependencyService.Register<KayitOlViewModel>();
+            Xamarin.Forms.DependencyService.Register<SepetimViewModel>();
+            Xamarin.Forms.DependencyService.Register<SiparisDetayViewModel>();
+            Xamarin.Forms.DependencyService.Register<TumUrunlerViewModel>();
+            Xamarin.Forms.DependencyService.Register<UrunDetayViewModel>();
+            Xamarin.Forms.DependencyService.Register<UrunlerViewModel>();
+            Xamarin.Forms.DependencyService.Register<UstGiyimViewModel>();
+            Xamarin.Forms.DependencyService.Register<UyeGirisiViewModel>(); 
         }
 
         public static void UpdateDependencies(bool useMockServices)
@@ -85,6 +110,10 @@ namespace eShopOnContainers.Core.ViewModels.Base
                 Xamarin.Forms.DependencyService.RegisterSingleton<ICampaignService> (new CampaignMockService());
 
                 Xamarin.Forms.DependencyService.RegisterSingleton<IAnaSayfaService>(new AnaSayfaMockService());
+                Xamarin.Forms.DependencyService.RegisterSingleton<ISepetimService>(new SepetimMockService());
+                Xamarin.Forms.DependencyService.RegisterSingleton<ISiparisService>(new SiparisMockService());
+                Xamarin.Forms.DependencyService.RegisterSingleton<IKullaniciService>(new KullaniciMockService());
+                Xamarin.Forms.DependencyService.RegisterSingleton<IKampanyaService>(new KampanyaMockService());
 
                 UseMockService = true;
             }
@@ -99,6 +128,10 @@ namespace eShopOnContainers.Core.ViewModels.Base
                 Xamarin.Forms.DependencyService.RegisterSingleton<IUserService> (new UserService(requestProvider));
 
                 Xamarin.Forms.DependencyService.RegisterSingleton<IAnaSayfaService>(new AnaSayfaService(requestProvider, fixUriService));
+                Xamarin.Forms.DependencyService.RegisterSingleton<ISepetimService>(new SepetimService(requestProvider, fixUriService));
+                Xamarin.Forms.DependencyService.RegisterSingleton<ISiparisService>(new SiparisService(requestProvider));
+                Xamarin.Forms.DependencyService.RegisterSingleton<IKullaniciService>(new KullaniciService(requestProvider));
+                Xamarin.Forms.DependencyService.RegisterSingleton<IKampanyaService>(new KampanyaService(requestProvider, fixUriService));
 
                 UseMockService = false;
             }
