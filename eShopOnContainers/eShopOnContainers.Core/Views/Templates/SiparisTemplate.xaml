@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="eShopOnContainers.Core.Views.Templates.SiparisTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.Resources>
+        <ResourceDictionary>
+
+            <Style
+                x:Key="SiparisTitleStyle"
+                BasedOn="{StaticResource MediumSizeFontStyle}"
+                TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="Gray" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition Height="1" />
+            </Grid.RowDefinitions>
+            <StackLayout
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="12">
+                <Label Style="{StaticResource SiparisTitleStyle}" Text="SİPARİŞ NUMBER" />
+                <Label Text="{Binding SiparisNumber, Converter={StaticResource ToUpperConverter}}" />
+            </StackLayout>
+            <StackLayout
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="12">
+                <Label Style="{StaticResource SiparisTitleStyle}" Text="TOTAL" />
+                <Label Text="{Binding Total, StringFormat='${0:N}', Converter={StaticResource ToUpperConverter}}" />
+            </StackLayout>
+            <StackLayout
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="12">
+                <Label Style="{StaticResource SiparisTitleStyle}" Text="DATE" />
+                <Label Text="{Binding SiparisDate, StringFormat={StaticResource DateTimeFormat}}" />
+            </StackLayout>
+            <StackLayout
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="12">
+                <Label Style="{StaticResource SiparisTitleStyle}" Text="STATUS" />
+                <Label Text="{Binding SiparisStatus, Converter={StaticResource ToUpperConverter}}" />
+            </StackLayout>
+            <Grid
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                BackgroundColor="Gray" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

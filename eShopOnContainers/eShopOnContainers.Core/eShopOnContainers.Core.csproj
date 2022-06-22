@@ -48,8 +48,17 @@
     <Compile Update="Views\HesabimView.xaml.cs">
       <DependentUpon>HesabimView.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\SiparisDetayView.xaml.cs">
+      <DependentUpon>SiparisDetayView.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\SepetimView.xaml.cs">
       <DependentUpon>SepetimView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Templates\SiparisItemTemplate.xaml.cs">
+      <DependentUpon>SiparisItemTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Templates\SiparisTemplate.xaml.cs">
+      <DependentUpon>SiparisTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\UrunlerView.xaml.cs">
       <DependentUpon>UrunlerView.xaml</DependentUpon>

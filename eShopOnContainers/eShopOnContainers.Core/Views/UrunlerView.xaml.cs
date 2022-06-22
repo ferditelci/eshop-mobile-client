@@ -46,7 +46,7 @@ namespace eShopOnContainers.Core.Views
 
         private void TumUrunler_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new UyeGirisiView());
+            Navigation.PushAsync(new UrunDetayView());
         }
 
         private void UstGiyim_Clicked(object sender, EventArgs e)
