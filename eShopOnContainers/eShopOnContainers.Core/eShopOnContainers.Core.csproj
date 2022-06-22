@@ -45,6 +45,12 @@
     <Compile Update="Views\AnaSayfaView.xaml.cs">
       <DependentUpon>AnaSayfaView.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\KampanyaDetaylarView.xaml.cs">
+      <DependentUpon>KampanyaDetaylarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\KampanyaView.xaml.cs">
+      <DependentUpon>KampanyaView.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\HesabimView.xaml.cs">
       <DependentUpon>HesabimView.xaml</DependentUpon>
     </Compile>
@@ -53,6 +59,9 @@
     </Compile>
     <Compile Update="Views\SepetimView.xaml.cs">
       <DependentUpon>SepetimView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Templates\KampanyaTemplate.xaml.cs">
+      <DependentUpon>KampanyaTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Templates\SiparisItemTemplate.xaml.cs">
       <DependentUpon>SiparisItemTemplate.xaml</DependentUpon>

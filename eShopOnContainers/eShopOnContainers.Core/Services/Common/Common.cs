@@ -16,5 +16,8 @@
 
         public static int MockCampaignId01 = 1;
         public static int MockCampaignId02 = 2;
+
+        public static int MockKampanyaId01 = 1;
+        public static int MockKampanyaId02 = 2;
     }
 }

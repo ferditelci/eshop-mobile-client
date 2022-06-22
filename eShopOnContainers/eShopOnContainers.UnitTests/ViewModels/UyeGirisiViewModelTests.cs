@@ -78,19 +78,5 @@ namespace eShopOnContainers.UnitTests
             Assert.NotNull(uyegirisiViewModel.ValidatePasswordCommand);
         }
 
-
-
-        [Fact]
-        public async Task LoginUrlIsNotNullAfterViewModelInitializationTest()
-        {
-            Xamarin.Forms.DependencyService.RegisterSingleton<ISettingsService>(new MockSettingsService());
-            var uyegirisiViewModel = new UyeGirisiViewModel();
-
-            await uyegirisiViewModel.InitializeAsync(null);
-
-            Assert.NotNull(uyegirisiViewModel.LoginUrl);
-        }
-
-        
     }
 }
