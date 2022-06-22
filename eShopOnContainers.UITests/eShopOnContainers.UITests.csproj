@@ -33,16 +33,6 @@
     <PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\eShopOnContainers\eShopOnContainers.Core\eShopOnContainers.Core.csproj">
-      <Project>{76c5f2a7-6cd5-49ea-9f33-ec44de6539c7}</Project>
-      <Name>eShopOnContainers.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\eShopOnContainers\eShopOnContainers.Droid\eShopOnContainers.Droid.csproj">
-      <Project>{62dbb163-9ca9-4818-b48b-13233df37c24}</Project>
-      <Name>eShopOnContainers.Droid</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Tests.cs" />
     <Compile Include="AppInitializer.cs" />
   </ItemGroup>

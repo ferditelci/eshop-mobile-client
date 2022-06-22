@@ -8,7 +8,7 @@ using Xamarin.UITest.Queries;
 namespace eShopOnContainers.UITests
 {
     [TestFixture(Platform.Android)]
-    [TestFixture(Platform.iOS)]
+    //[TestFixture(Platform.iOS)]
     public class Tests
     {
         IApp app;
@@ -29,7 +29,7 @@ namespace eShopOnContainers.UITests
         public void WelcomeTextIsDisplayed()
         {
             AppResult[] results = app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
-            app.Screenshot("Welcome screen.");
+            
 
             Assert.IsTrue(results.Any());
         }

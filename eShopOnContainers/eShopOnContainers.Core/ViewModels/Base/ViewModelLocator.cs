@@ -14,6 +14,7 @@ using eShopOnContainers.Core.Services.RequestProvider;
 using eShopOnContainers.Core.Services.Sepetim;
 using eShopOnContainers.Core.Services.Settings;
 using eShopOnContainers.Core.Services.Siparis;
+using eShopOnContainers.Core.Services.UrunDetay;
 using eShopOnContainers.Core.Services.User;
 using eShopOnContainers.Core.Services.UyeGirisi;
 using eShopOnContainers.Services;
@@ -67,6 +68,7 @@ namespace eShopOnContainers.Core.ViewModels.Base
             Xamarin.Forms.DependencyService.RegisterSingleton<ISiparisService>(new SiparisMockService());
             Xamarin.Forms.DependencyService.RegisterSingleton<IKullaniciService>(new KullaniciMockService());
             Xamarin.Forms.DependencyService.RegisterSingleton<IKampanyaService>(new KampanyaMockService());
+            Xamarin.Forms.DependencyService.RegisterSingleton<IUrunDetayService>(new UrunDetayMockService());
 
             // View models - by default, TinyIoC will register concrete classes as multi-instance.
             Xamarin.Forms.DependencyService.Register<BasketViewModel> ();
@@ -114,6 +116,7 @@ namespace eShopOnContainers.Core.ViewModels.Base
                 Xamarin.Forms.DependencyService.RegisterSingleton<ISiparisService>(new SiparisMockService());
                 Xamarin.Forms.DependencyService.RegisterSingleton<IKullaniciService>(new KullaniciMockService());
                 Xamarin.Forms.DependencyService.RegisterSingleton<IKampanyaService>(new KampanyaMockService());
+                Xamarin.Forms.DependencyService.RegisterSingleton<IUrunDetayService>(new UrunDetayMockService());
 
                 UseMockService = true;
             }
@@ -132,6 +135,7 @@ namespace eShopOnContainers.Core.ViewModels.Base
                 Xamarin.Forms.DependencyService.RegisterSingleton<ISiparisService>(new SiparisService(requestProvider));
                 Xamarin.Forms.DependencyService.RegisterSingleton<IKullaniciService>(new KullaniciService(requestProvider));
                 Xamarin.Forms.DependencyService.RegisterSingleton<IKampanyaService>(new KampanyaService(requestProvider, fixUriService));
+                Xamarin.Forms.DependencyService.RegisterSingleton<IUrunDetayService>(new UrunDetayService(requestProvider, fixUriService));
 
                 UseMockService = false;
             }
