@@ -1,13 +1,10 @@
-﻿using eShopOnContainers.Core.Models.Catalog;
-using eShopOnContainers.Core.Services.Catalog;
-using eShopOnContainers.Core.Services.Settings;
+﻿using eShopOnContainers.Core.Services.Settings;
 using eShopOnContainers.Core.ViewModels;
 using eShopOnContainers.Core.ViewModels.Base;
 using eShopOnContainers.UnitTests.Mocks;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
-using eShopOnContainers.Core.Services.UyeGirisi;
 
 namespace eShopOnContainers.UnitTests
 {
@@ -22,9 +19,78 @@ namespace eShopOnContainers.UnitTests
         public void MockSignInCommandIsNotNullTest()
         {
             Xamarin.Forms.DependencyService.RegisterSingleton<ISettingsService>(new MockSettingsService());
-            var UyeGirisiViewModel = new UyeGirisiViewModel();
+            var uyegirisiViewModel = new UyeGirisiViewModel();
 
-            Assert.NotNull(UyeGirisiViewModel.MockSignInCommand);
+            Assert.NotNull(uyegirisiViewModel.MockSignInCommand);
         }
+
+        [Fact]
+        public void SignInCommandIsNotNullTest()
+        {
+            Xamarin.Forms.DependencyService.RegisterSingleton<ISettingsService>(new MockSettingsService());
+            var uyegirisiViewModel = new UyeGirisiViewModel();
+
+            Assert.NotNull(uyegirisiViewModel.SignInCommand);
+        }
+
+        [Fact]
+        public void RegisterCommandIsNotNullTest()
+        {
+            Xamarin.Forms.DependencyService.RegisterSingleton<ISettingsService>(new MockSettingsService());
+            var uyegirisiViewModel = new UyeGirisiViewModel();
+
+            Assert.NotNull(uyegirisiViewModel.RegisterCommand);
+        }
+
+        [Fact]
+        public void NavigateCommandIsNotNullTest()
+        {
+            Xamarin.Forms.DependencyService.RegisterSingleton<ISettingsService>(new MockSettingsService());
+            var uyegirisiViewModel = new UyeGirisiViewModel();
+
+            Assert.NotNull(uyegirisiViewModel.NavigateCommand);
+        }
+
+        [Fact]
+        public void SettingsCommandIsNotNullTest()
+        {
+            Xamarin.Forms.DependencyService.RegisterSingleton<ISettingsService>(new MockSettingsService());
+            var uyegirisiViewModel = new UyeGirisiViewModel();
+
+            Assert.NotNull(uyegirisiViewModel.SettingsCommand);
+        }
+
+        [Fact]
+        public void ValidateUserNameCommandIsNotNullTest()
+        {
+            Xamarin.Forms.DependencyService.RegisterSingleton<ISettingsService>(new MockSettingsService());
+            var uyegirisiViewModel = new UyeGirisiViewModel();
+
+            Assert.NotNull(uyegirisiViewModel.ValidateUserNameCommand);
+        }
+
+        [Fact]
+        public void ValidatePasswordCommandIsNotNullTest()
+        {
+            Xamarin.Forms.DependencyService.RegisterSingleton<ISettingsService>(new MockSettingsService());
+            var uyegirisiViewModel = new UyeGirisiViewModel();
+
+            Assert.NotNull(uyegirisiViewModel.ValidatePasswordCommand);
+        }
+
+
+
+        [Fact]
+        public async Task LoginUrlIsNotNullAfterViewModelInitializationTest()
+        {
+            Xamarin.Forms.DependencyService.RegisterSingleton<ISettingsService>(new MockSettingsService());
+            var uyegirisiViewModel = new UyeGirisiViewModel();
+
+            await uyegirisiViewModel.InitializeAsync(null);
+
+            Assert.NotNull(uyegirisiViewModel.LoginUrl);
+        }
+
+        
     }
 }
